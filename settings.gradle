@@ -1,0 +1,5 @@
+rootProject.name = 'orika-demo'
+include 'orika-1.4'
+include 'orika-1.5'
+include 'common'
+
