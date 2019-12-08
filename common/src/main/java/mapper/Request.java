@@ -2,12 +2,13 @@ package mapper;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Request {
 
     private String id;
 
-    private HashMap<String, List<String>> params;
+    private Map<String, List<String>> params;
 
     public String getId() {
         return id;
@@ -17,11 +18,11 @@ public class Request {
         this.id = id;
     }
 
-    HashMap<String, List<String>> getParams() {
+    Map<String, List<String>> getParams() {
         return params;
     }
 
-    public void setParams(HashMap<String, List<String>> params) {
+    public void setParams(Map<String, List<String>> params) {
         this.params = params;
     }
 
