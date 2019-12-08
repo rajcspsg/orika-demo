@@ -9,6 +9,7 @@ public class ObjectB {
     private Double cp;
     private Long reqId;
     public Map<String, List<String>> qs;
+    public List<String> ls;
 
     public int getEvType() {
         return evType;
@@ -44,6 +45,14 @@ public class ObjectB {
 
     public void setReqId(Long reqId) {
         this.reqId = reqId;
+    }
+
+    public List<String> getLs() {
+        return ls;
+    }
+
+    public void setLs(List<String> ls) {
+        this.ls = ls;
     }
 
     @Override

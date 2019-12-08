@@ -19,7 +19,6 @@ public class PersonToPersonDtoMapper implements BoundMapperFacade<Person, Person
         MapperFactory mapperFactory = new DefaultMapperFactory.Builder().mapNulls(false).dumpStateOnException(false).build();
         ClassMapBuilder<Person, PersonDto> classBuilder = mapperFactory.classMap(Person.class, PersonDto.class);
         fieldMap.forEach((k,v) -> classBuilder.field(k,v));
-        classBuilder.toClassMap();
         classBuilder.register();
         delegate = mapperFactory.getMapperFacade(Person.class, PersonDto.class);
     }

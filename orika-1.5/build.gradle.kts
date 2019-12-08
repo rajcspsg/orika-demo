@@ -1,5 +1,6 @@
 plugins {
     java
+    application
 }
 
 group = "orika-demo"
@@ -21,6 +22,10 @@ dependencies {
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+application {
+    mainClassName = "mapper.ObjectAToObjectBDemo"
 }
 
 tasks {

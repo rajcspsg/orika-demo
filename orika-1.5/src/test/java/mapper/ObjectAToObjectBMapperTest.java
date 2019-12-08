@@ -3,21 +3,19 @@ package mapper;
 import ma.glasnost.orika.BoundMapperFacade;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapperTest {
+public class ObjectAToObjectBMapperTest {
     private BoundMapperFacade<ObjectA, ObjectB> mapper;
 
     @BeforeClass
     public void setUpBeforeClass() {
         Map<String,String> fieldMap = new HashMap<>();
         fieldMap.put("request.id","reqId");
-        fieldMap.put("request.params","qs");
-        //fieldMap.put("request.params['id']{}","evType");
-        fieldMap.put("request.params['cp']{first}", "cp");
-        String mapEntryFilter = "(X-.*)|(Accept-Language)";
-        mapper = new ObjectAtoBMapper(fieldMap, mapEntryFilter);
+        fieldMap.put("request.params['cp']{}", "cp");
+        mapper = new ObjectAtoBMapper(fieldMap, "");
     }
 
 
