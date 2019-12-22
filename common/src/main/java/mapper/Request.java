@@ -17,7 +17,7 @@ public class Request {
         this.id = id;
     }
 
-    Map<String, List<String>> getParams() {
+    public Map<String, List<String>> getParams() {
         return params;
     }
 

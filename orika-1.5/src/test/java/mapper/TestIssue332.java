@@ -30,6 +30,7 @@ public class TestIssue332 {
         params.put("id", new ArrayList<String>() {{
             add("2");
         }});
+
         params.put("cp", new ArrayList<String>() {{
             add("0.51");
             add("0.52");
