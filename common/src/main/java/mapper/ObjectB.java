@@ -5,18 +5,16 @@ import java.util.Map;
 
 public class ObjectB {
 
-    private int evType;
-    private Double cp;
     private Long reqId;
-    public Map<String, List<String>> qs;
-    public List<String> ls;
 
-    public int getEvType() {
-        return evType;
+    private Double cp;
+
+    public Long getReqId() {
+        return reqId;
     }
 
-    public void setEvType(int evType) {
-        this.evType = evType;
+    public void setReqId(Long reqId) {
+        this.reqId = reqId;
     }
 
     public Double getCp() {
@@ -27,46 +25,11 @@ public class ObjectB {
         this.cp = cp;
     }
 
-    public void setEvType(Integer evType) {
-        this.evType = evType;
-    }
-
-    public Map<String, List<String>> getQs() {
-        return qs;
-    }
-
-    public void setQs(Map<String, List<String>> qs) {
-        this.qs = qs;
-    }
-
-    public Long getReqId() {
-        return reqId;
-    }
-
-    public void setReqId(Long reqId) {
-        this.reqId = reqId;
-    }
-
-    public List<String> getLs() {
-        return ls;
-    }
-
-    public void setLs(List<String> ls) {
-        this.ls = ls;
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
     @Override
     public String toString() {
-        return super.toString();
+        return "ObjectB{" +
+                "reqId=" + reqId +
+                ", cp=" + cp +
+                '}';
     }
 }

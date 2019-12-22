@@ -14,17 +14,19 @@ public class ObjectAtoBMapper implements BoundMapperFacade<ObjectA, ObjectB> {
 
     BoundMapperFacade<ObjectA, ObjectB> delegate;
 
-    public ObjectAtoBMapper(Map<String, String> fieldMap, String mapEntryFilter) {
-        init(fieldMap, mapEntryFilter);
+    public ObjectAtoBMapper(Map<String, String> fieldMap) {
+        init(fieldMap);
     }
 
-    public void init(Map<String, String> fieldMap, String mapEntryFilter) {
+    public void init(Map<String, String> fieldMap) {
         MappingContext.Factory mcf = new MappingContext.Factory();
         MapperFactory mapperFactory = new DefaultMapperFactory.Builder().mapNulls(false).mappingContextFactory(mcf).dumpStateOnException(false).build();
         ClassMapBuilder<ObjectA, ObjectB> impBuilder = mapperFactory.classMap(ObjectA.class, ObjectB.class);
+        ClassMapBuilder<ObjectB, ObjectA> impBuilder2 = mapperFactory.classMap(ObjectB.class, ObjectA.class);
         fieldMap.forEach((k,v) -> impBuilder.field(k,v));
+        fieldMap.forEach((k,v) -> impBuilder2.field(v,k));
         impBuilder.register();
-
+        impBuilder2.register();
         try {
             delegate = mapperFactory.getMapperFacade(ObjectA.class, ObjectB.class);
         } catch (Exception e) {

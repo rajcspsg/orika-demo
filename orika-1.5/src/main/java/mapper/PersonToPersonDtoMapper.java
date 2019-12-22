@@ -18,8 +18,11 @@ public class PersonToPersonDtoMapper implements BoundMapperFacade<Person, Person
     public PersonToPersonDtoMapper(Map<String, String> fieldMap) {
         MapperFactory mapperFactory = new DefaultMapperFactory.Builder().mapNulls(false).dumpStateOnException(false).build();
         ClassMapBuilder<Person, PersonDto> classBuilder = mapperFactory.classMap(Person.class, PersonDto.class);
+        ClassMapBuilder<PersonDto, Person> classBuilder2 = mapperFactory.classMap(PersonDto.class, Person.class);
         fieldMap.forEach((k,v) -> classBuilder.field(k,v));
+        fieldMap.forEach((k,v) -> classBuilder2.field(v,k));
         classBuilder.register();
+        classBuilder2.register();
         delegate = mapperFactory.getMapperFacade(Person.class, PersonDto.class);
     }
 

@@ -14,8 +14,8 @@ public class ObjectAToObjectBMapperTest {
     public void setUpBeforeClass() {
         Map<String,String> fieldMap = new HashMap<>();
         fieldMap.put("request.id","reqId");
-        fieldMap.put("request.params['cp']{}", "cp");
-        mapper = new ObjectAtoBMapper(fieldMap, "");
+        fieldMap.put("request.params['cp'][0]", "cp");
+        mapper = new ObjectAtoBMapper(fieldMap);
     }
 
 
@@ -26,8 +26,6 @@ public class ObjectAToObjectBMapperTest {
         request.setId("123");
         a.setRequest(request);
         ObjectB b = mapper.map(a);
-        //double cp = Double.parseDouble(a.getRequest().getParams().get("cp").get(1));
-        //Assert.assertTrue(b.getCp().doubleValue() == cp);
         System.out.println(b);
     }
 }
